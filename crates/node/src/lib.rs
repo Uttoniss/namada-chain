@@ -51,7 +51,6 @@ use once_cell::unsync::Lazy;
 use sysinfo::{RefreshKind, System, SystemExt};
 use tokio::sync::mpsc;
 use tokio::task;
-use tower::ServiceBuilder;
 
 use self::abortable::AbortableSpawner;
 use self::ethereum_oracle::last_processed_block;
