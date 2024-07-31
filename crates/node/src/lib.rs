@@ -745,13 +745,7 @@ async fn run_abci(
         .consensus(consensus)
         .snapshot(snapshot)
         .mempool(mempool) // don't load_shed, it will make CometBFT crash
-        .info(
-            ServiceBuilder::new()
-                .load_shed()
-                .buffer(100)
-                .rate_limit(50, std::time::Duration::from_secs(1))
-                .service(info),
-        )
+        .info(info) // don't load_shed, it will make tower-abci crash
         .finish()
         .unwrap();
     tokio::select! {
